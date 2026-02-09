@@ -306,7 +306,7 @@ public class UiStarter {
         String exePath = getAppExePath();
         if (os.contains("win")) {
             String programFiles = System.getenv("ProgramFiles");
-            String exe = programFiles + "\\MuppetPrinter\\MuppetPrinter.exe";
+            String exe = programFiles + "\\MuppetPrint\\MuppetPrint.exe";
             if (new java.io.File(exe).exists()) return exe;
         }
         return exePath;
@@ -316,7 +316,7 @@ public class UiStarter {
     private static String getNativeAppPath() {
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("mac")) {
-            String appBundle = "/Applications/MuppetPrinter.app";
+            String appBundle = "/Applications/MuppetPrint.app";
             if (new java.io.File(appBundle).exists()) return appBundle;
         }
         // fallback: 返回 jar 路径

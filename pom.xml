@@ -180,7 +180,7 @@
                         <artifactId>jpackage-maven-plugin</artifactId>
                         <version>1.6.5</version>
                         <configuration>
-                            <name>MuppetPrinter</name>
+                            <name>MuppetPrint</name>
                             <appVersion>1.0.0</appVersion>
                             <vendor>XueSiNuo</vendor>
                             <destination>target/dist</destination>
@@ -192,7 +192,7 @@
                             <winDirChooser>true</winDirChooser>
                             <winMenu>true</winMenu>
                             <winShortcut>true</winShortcut>
-                            <winMenuGroup>MuppetPrinter</winMenuGroup>
+                            <winMenuGroup>MuppetPrint</winMenuGroup>
                             <icon>${project.basedir}/src/main/resources/app.ico</icon>
                             <input>target</input>
                             <mainJar>${project.build.finalName}.jar</mainJar>
@@ -215,7 +215,7 @@
                         <artifactId>jpackage-maven-plugin</artifactId>
                         <version>1.6.5</version>
                         <configuration>
-                            <name>MuppetPrinter</name>
+                            <name>MuppetPrint</name>
                             <appVersion>1.0.0</appVersion>
                             <vendor>XueSiNuo</vendor>
                             <destination>target/dist</destination>
@@ -224,7 +224,7 @@
                                 <option>-jar</option>
                                 <option>$APPDIR/${project.build.finalName}.jar</option>
                             </javaOptions>
-                            <macPackageName>MuppetPrinter</macPackageName>
+                            <macPackageName>MuppetPrint</macPackageName>
                             <input>target</input>
                             <mainJar>${project.build.finalName}.jar</mainJar>
                             <icon>${project.basedir}/src/main/resources/app.icns</icon>

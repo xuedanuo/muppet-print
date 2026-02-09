@@ -112,7 +112,7 @@ public class PrinterUtil {
                 if (os.contains("win")) {
                     importFiles = new File("app/classes/imports");// Windows安装路径
                 } else if (os.contains("mac")) {
-                    importFiles = new File("/Applications/MuppetPrinter.app/Contents/app/classes/imports");// MacOS安装路径
+                    importFiles = new File("/Applications/MuppetPrint.app/Contents/app/classes/imports");// MacOS安装路径
                 }
             }
             if (importFiles.exists() && importFiles.isDirectory()) {
