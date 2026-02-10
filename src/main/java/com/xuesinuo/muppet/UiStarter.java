@@ -110,7 +110,7 @@ public class UiStarter {
         Font defaultFont = label.getFont();
         int fs = defaultFont.getSize(); // 字体大小
         int hfs = fs / 2 + fs % 2;
-        frame.setSize(70 * hfs, 40 * hfs);// 窗口大小
+        frame.setSize(75 * hfs, 45 * hfs);// 窗口大小
 
         /*
          * 布局计算方式：
@@ -173,7 +173,7 @@ public class UiStarter {
 
         // 消息标签
         messageLabel.setForeground(Color.RED);
-        messageLabel.setBounds(2 * hfs, 21 * hfs + titleBarHeight, 60 * hfs, 4 * hfs);
+        messageLabel.setBounds(2 * hfs, 21 * hfs + titleBarHeight, 70 * hfs, 4 * hfs);
         frame.add(messageLabel);
 
         frame.setVisible(true);

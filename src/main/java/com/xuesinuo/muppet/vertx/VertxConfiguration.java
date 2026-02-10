@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import io.vertx.core.Vertx;
+import io.vertx.ext.web.client.WebClient;
 
 /**
  * Vertx配置
@@ -13,7 +14,12 @@ import io.vertx.core.Vertx;
 @Configuration
 public class VertxConfiguration {
     @Bean
-    public Vertx vertx() {
+    Vertx vertx() {
         return Vertx.vertx();
+    }
+
+    @Bean
+    WebClient webClient(Vertx vertx) {
+        return WebClient.create(vertx);
     }
 }
