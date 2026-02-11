@@ -12,7 +12,7 @@
 
     <groupId>com.xuesinuo</groupId>
     <artifactId>muppet-print</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.1</version>
     <name>muppet-print</name>
     <description>muppet-print</description>
 
@@ -181,7 +181,7 @@
                         <version>1.6.5</version>
                         <configuration>
                             <name>MuppetPrint</name>
-                            <appVersion>1.0.0</appVersion>
+                            <appVersion>1.0.1</appVersion>
                             <vendor>XueSiNuo</vendor>
                             <destination>target/dist</destination>
                             <javaOptions>
@@ -216,7 +216,7 @@
                         <version>1.6.5</version>
                         <configuration>
                             <name>MuppetPrint</name>
-                            <appVersion>1.0.0</appVersion>
+                            <appVersion>1.0.1</appVersion>
                             <vendor>XueSiNuo</vendor>
                             <destination>target/dist</destination>
                             <javaOptions>

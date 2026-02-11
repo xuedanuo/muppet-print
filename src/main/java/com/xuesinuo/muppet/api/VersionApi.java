@@ -26,7 +26,7 @@ public class VersionApi {
     }
 
     /** 当前版本 */
-    private static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.0.1";
 
     private void uiVersion() {
         webClient.get(443, "www.xuesinuo.com", "/muppet-print/version").ssl(true).send()

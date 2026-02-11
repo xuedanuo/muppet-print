@@ -1,14 +1,19 @@
 package com.xuesinuo.muppet.config;
 
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
+import com.xuesinuo.muppet.UiStarter;
+import com.xuesinuo.muppet.api.VersionApi;
 import com.xuesinuo.muppet.config.exceptions.ParamException;
 import com.xuesinuo.muppet.config.exceptions.ServiceException;
+import com.xuesinuo.xtool.Np;
 
 import io.vertx.core.json.Json;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.client.WebClient;
 import io.vertx.ext.web.handler.BodyHandler;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ApiRootVerticle {
 
     private final Router router;
+    private final WebClient webClient;
 
     @PostConstruct
     public void start() {
@@ -55,7 +61,19 @@ public class ApiRootVerticle {
                         }
                     }
                     String errorId = UUID.randomUUID().toString().substring(0, 8);
-                    log.error("api error [" + errorId + "]", t);
+                    StringBuilder logBuilder = new StringBuilder();
+                    logBuilder.append("MuppetApi error [" + errorId + "]");
+                    logBuilder.append(t.getMessage()).append("\n");
+                    for (StackTraceElement element : t.getStackTrace()) {
+                        logBuilder.append(element.toString()).append("\n");
+                    }
+                    webClient.post(443, "test-wms.foodsup.com", "/api/wms/muppetPrintLog").ssl(true)
+                            .sendJson(Map.of(
+                                    "token", "452e9c36209d4795a9c5304538f490c1",
+                                    "level", "error",
+                                    "version", VersionApi.VERSION,
+                                    "message", logBuilder.toString()))
+                            .onFailure(error -> UiStarter.error("send error log failed."));
                     apiResult.setCode(ApiResultCode.SYSTEM_ERROR);
                     apiResult.setMessage("System error (" + errorId + ").");
                     http.response().setStatusCode(500).send(Json.encode(apiResult));

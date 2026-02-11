@@ -68,7 +68,7 @@ public class PrinterUtil {
             }
             log.info("Found {} printer(s)", printers.size());
         } catch (Exception e) {
-            log.error("Failed to list printers", e);
+            throw new RuntimeException(e);
         }
         return printers;
     }
@@ -141,7 +141,6 @@ public class PrinterUtil {
             if (e instanceof java.lang.IllegalStateException && e.getMessage().contains("Printer not found")) {
                 throw new ServiceException(e.getMessage());
             }
-            log.error("Failed to print HTML", e);
             throw new RuntimeException(e);
         } finally {
             if (tempDir != null) {
@@ -214,7 +213,6 @@ public class PrinterUtil {
             // 查找打印机
             PrintService targetPrinter = findPrinter(printerName);
             if (targetPrinter == null) {
-                log.error("Printer not found: {}", printerName);
                 throw new IllegalStateException("Printer not found: " + printerName);
             }
 

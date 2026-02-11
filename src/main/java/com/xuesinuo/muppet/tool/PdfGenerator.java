@@ -102,8 +102,7 @@ public class PdfGenerator {
             cleanupDir(workDir);
             return pdfPath.toString();
         } catch (Exception e) {
-            log.error("Failed to generate PDF", e);
-            return null;
+            throw new RuntimeException(e);
         }
     }
 
